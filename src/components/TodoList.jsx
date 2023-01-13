@@ -4,16 +4,26 @@ import Task from "./Task";
 
 import './TodoList.css';
 
+// dummy data
+const dummyTasks = [
+  { id: uuidv4(), task: 'Eat' },
+  { id:uuidv4(), task: 'Drink' },
+  { id: uuidv4(), task: 'Sleep' },
+  { id:uuidv4(), task: 'Eat' }
+];
+
 function TodoList() {
-  const [tasks, setTasks] = useState([
-    { id: uuidv4(), task: 'Eat' },
-    { id:uuidv4(), task: 'Drink' },
-    { id: uuidv4(), task: 'Sleep' },
-    { id:uuidv4(), task: 'Eat' }
-  ]);
+  const [tasks, setTasks] = useState(dummyTasks);
+
+  function makeTask(task="") {
+    return {
+      id: uuidv4(),
+      task: task
+    };
+  }
 
   function addTask() {
-    console.log('Coucou');
+    setTasks(tasks.concat(makeTask()));
   }
 
   function deleteTask(taskId) {

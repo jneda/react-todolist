@@ -7,6 +7,10 @@ span {
   padding-left: 0.6rem;
 }
 
+input[type="text"] {
+  flex: auto;
+}
+
 button {
   border: none;
   background: none;
