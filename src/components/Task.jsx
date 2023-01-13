@@ -7,7 +7,7 @@ function Task(props) {
         <input type="checkbox" name="" id="" />
         <span>{props.task}</span>
         <button>🖊️</button>
-        <button>➖</button>
+        <button onClick={() => props.handleDeleteTask(props.id)}>➖</button>
       </li>
     </>
   );
