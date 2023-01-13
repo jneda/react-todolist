@@ -1,0 +1,14 @@
+li {
+  display: flex;
+}
+
+span {
+  flex: auto;
+  padding-left: 0.6rem;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
