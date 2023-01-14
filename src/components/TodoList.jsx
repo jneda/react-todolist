@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import Task from "./Task";
+import EditableTask from "./EditableTask";
 
 import './TodoList.css';
 
@@ -35,7 +35,7 @@ function TodoList() {
       <legend>Todo:</legend>
       <ul>
         {tasks.map((task) => (
-          <Task
+          <EditableTask
             key={task.id}
             id={task.id}
             task={task.task}
