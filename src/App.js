@@ -5,8 +5,13 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <h1>My Todo List</h1>
+      <header>
+        <h1>My Todo List</h1>
+      </header>
       <TodoList />
+      <footer>
+        @houlala.dev
+      </footer>
     </div>
   );
 }

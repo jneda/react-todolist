@@ -1,16 +1,8 @@
-import './Task.css';
-
 function Task(props) {
-  return (
-    <>
-      <li>
-        <input type="checkbox" name="" id="" />
-        <span>{props.task}</span>
-        <button>🖊️</button>
-        <button onClick={() => props.handleDeleteTask(props.id)}>➖</button>
-      </li>
-    </>
-  );
+ return (<>
+    <input type="checkbox" />
+    <span>{props.task}</span>
+  </>);
 }
 
 export default Task;

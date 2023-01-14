@@ -1,0 +1,15 @@
+li {
+  display: flex;
+}
+
+span,
+input[type="text"] {
+  flex: auto;
+  margin-left: 0.6rem;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
