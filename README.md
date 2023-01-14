@@ -4,4 +4,4 @@ React practice project.
 
 A simple todo list with editable tasks.
 
-Live demo: [https://jneda.github.io/react-todolist/](https://jneda.github.io/react-todolist/)
+Live demo: <a href="https://jneda.github.io/react-todolist/" target="_blank">https://jneda.github.io/react-todolist</a>
