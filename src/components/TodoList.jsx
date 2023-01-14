@@ -14,6 +14,8 @@ const dummyTasks = [
 
 function TodoList() {
   const [tasks, setTasks] = useState(dummyTasks);
+  const [editing, setEditingMode] = useState(null);
+  const [editedTask, setEditedTask] = useState('');
 
   function makeTask(task="") {
     return {
@@ -23,11 +25,43 @@ function TodoList() {
   }
 
   function addTask() {
-    setTasks(tasks.concat(makeTask()));
+    const newTask = makeTask();
+    setTasks(tasks.concat(newTask));
+    setEditingMode(newTask.id);
   }
 
   function deleteTask(taskId) {
+    if (editing) {
+      return;
+    }
     setTasks(tasks.filter(task => task.id !== taskId));
+  }
+
+  function editTask(taskId) {
+    if (editing) {
+      return;
+    }
+    setEditingMode(taskId);
+    // get task text
+    const taskIndex = tasks.findIndex(task => taskId === task.id);
+    setEditedTask(tasks[taskIndex].task);
+  }
+
+  function handleInputChange(event) {
+    const taskInput = event.target;
+    setEditedTask(taskInput.value);    
+  }
+
+  function handleInputKeyUp(event) {
+    if (event.key !== "Enter") {
+      return;
+    }
+    // modify task
+    const taskIndex = tasks.findIndex(task => editing === task.id);
+    tasks[taskIndex].task = editedTask;
+    // reset editing mode and editedTask
+    setEditingMode(null);
+    setEditedTask('');
   }
 
   return (
@@ -38,8 +72,12 @@ function TodoList() {
           <EditableTask
             key={task.id}
             id={task.id}
-            task={task.task}
             handleDeleteTask={deleteTask}
+            handleEditTask={editTask}
+            handleInputChange={handleInputChange}
+            handleInputKeyUp={handleInputKeyUp}
+            editing={editing === task.id}
+            task={editing === task.id && editedTask ? editedTask : task.task}
           />
         ))}
       </ul>
