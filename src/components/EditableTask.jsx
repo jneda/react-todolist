@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import Task from './Task';
 import TaskInput from './TaskInput';
 
