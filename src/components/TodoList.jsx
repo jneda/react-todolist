@@ -25,6 +25,9 @@ function TodoList() {
   }
 
   function addTask() {
+    if (editing) {
+      return;
+    }
     const newTask = makeTask();
     setTasks(tasks.concat(newTask));
     setEditingMode(newTask.id);
